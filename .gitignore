@@ -128,13 +128,13 @@ experiment
 # data
 data/
 
-training results
-backups/
-/results/*
+# training results
+# backups/
+# /results/*
 
-figures/
-# pictures
-*.png
-*.jpg
-*.jpeg
-*.gif
+# figures/
+# # pictures
+# *.png
+# *.jpg
+# *.jpeg
+# *.gif

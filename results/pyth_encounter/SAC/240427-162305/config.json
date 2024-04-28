@@ -1,0 +1,118 @@
+{
+    "env_id": "pyth_encounter",
+    "algorithm": "SAC",
+    "enable_cuda": false,
+    "seed": 52345,
+    "vector_env_num": 32,
+    "vector_env_type": "async",
+    "gym2gymnasium": true,
+    "action_type": "continu",
+    "is_render": false,
+    "is_adversary": false,
+    "pre_horizon": 1,
+    "value_func_name": "ActionValue",
+    "value_func_type": "MLP",
+    "value_hidden_sizes": [
+        256,
+        256,
+        256
+    ],
+    "value_hidden_activation": "gelu",
+    "value_output_activation": "linear",
+    "policy_func_name": "StochaPolicy",
+    "policy_func_type": "MLP",
+    "policy_act_distribution": "TanhGaussDistribution",
+    "spectrum_norm": false,
+    "policy_hidden_sizes": [
+        512,
+        256,
+        256
+    ],
+    "policy_hidden_activation": "gelu",
+    "policy_output_activation": "linear",
+    "policy_min_log_std": -20,
+    "policy_max_log_std": 1,
+    "value_learning_rate": 0.001,
+    "q_learning_rate": 0.001,
+    "policy_learning_rate": 0.001,
+    "final_lr_decay": 0.01,
+    "alpha_learning_rate": 0.0002,
+    "trainer": "off_serial_trainer",
+    "max_iteration": 60000,
+    "ini_network_dir": null,
+    "buffer_name": "replay_buffer",
+    "buffer_warm_size": 1000,
+    "buffer_max_size": 100000,
+    "replay_batch_size": 256,
+    "sampler_sync_interval": 1,
+    "sampler_name": "off_sampler",
+    "sample_batch_size": 32,
+    "noise_params": null,
+    "evaluator_name": "evaluator",
+    "num_eval_episode": 10,
+    "eval_interval": 1000,
+    "eval_save": false,
+    "save_folder": "/home/zouwenjun/code/gops/results/pyth_encounter/SAC/240427-162305",
+    "apprfunc_save_interval": 5000,
+    "log_save_interval": 1000,
+    "device": "cpu",
+    "use_gpu": false,
+    "batch_size_per_sampler": 32,
+    "obsv_dim": 14,
+    "action_dim": 2,
+    "action_high_limit": [
+        0.5,
+        1.5
+    ],
+    "action_low_limit": [
+        -0.5,
+        -1.5
+    ],
+    "additional_info": {
+        "state": {
+            "shape": [
+                6
+            ],
+            "dtype": "<class 'numpy.float32'>"
+        },
+        "ref_points": {
+            "shape": [
+                2,
+                4
+            ],
+            "dtype": "<class 'numpy.float32'>"
+        },
+        "path_num": {
+            "shape": [],
+            "dtype": "<class 'numpy.uint8'>"
+        },
+        "u_num": {
+            "shape": [],
+            "dtype": "<class 'numpy.uint8'>"
+        },
+        "ref_time": {
+            "shape": [],
+            "dtype": "<class 'numpy.float32'>"
+        },
+        "ref": {
+            "shape": [
+                4
+            ],
+            "dtype": "<class 'numpy.float32'>"
+        },
+        "surr_state": {
+            "shape": [
+                1,
+                5
+            ],
+            "dtype": "<class 'numpy.float32'>"
+        },
+        "constraint": {
+            "shape": [
+                1
+            ],
+            "dtype": "<class 'numpy.float32'>"
+        }
+    },
+    "cnn_shared": false
+}
