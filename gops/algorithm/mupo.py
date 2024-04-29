@@ -196,7 +196,7 @@ class ApproxContainer(ApprBase):
 
 
 class MUPO(AlgorithmBase):
-    """MMUPO algorithm
+    """MUPO algorithm
     :param float gamma: discount factor.
     :param float tau: param for soft update of target network.
     :param bool auto_alpha: whether to adjust temperature automatically.
@@ -258,7 +258,6 @@ class MUPO(AlgorithmBase):
 
         obs = data["obs"]
         act_dist = self.networks.create_action_distributions(obs)
-        # data add: gate_prob, new_act_list, new_logp_list, entropy
         gate_prob = self.networks.compute_gate_policy_prob(obs, self.__get_alpha())
         data.update({"gate_prob": gate_prob, "act_dist": act_dist})
 
@@ -429,7 +428,7 @@ class MUPO(AlgorithmBase):
 
         loss_policy = -self.__get_alpha() * entropy - q_sum.mean()
 
-        # gate prob regularization
+        # Gate prob regularization to prevent numerical instability 
         gate_logits = self.networks.compute_gate_policy_logits(obs)
         gate_reg_mean = torch.abs(gate_logits.mean())
         gate_reg_L2 = torch.pow(gate_logits, 2).mean()
@@ -437,15 +436,14 @@ class MUPO(AlgorithmBase):
         if (gate_reg_L2 > 25.0):
             loss_policy += 1.0 * gate_reg_L2
         
-        # sub policy mean regularization
+        # Sub policy mean normalization
         sub_policy_logits = self.networks.compute_sub_policy_logits(obs)
         sub_policy_mean, _ = torch.chunk(sub_policy_logits, 2, dim=-1)
         sub_policy_mean = torch.tanh(sub_policy_mean) 
         
-        # Instead of minimizing forward KL divergence by maximizing log_prob, this approach
+        # Instead of minimizing the forward KL divergence by directly maximizing log_prob, this method
         # penalizes by measuring the distance between sub_policy_mean and sampled_action.
-        # This is because introducing forward KL aims for modal exploration, and directly
-        # approximating sub_policy_mean to sampled_action can achieve better results than
+        # Approximating sub_policy_mean to sampled_action provides better modal exploration compared to
         # simply maximizing log_prob.
         sampled_action = self.networks.sampleWithoutDerivative(obs)
         # Mapping ref_action to the range [-1, 1]
