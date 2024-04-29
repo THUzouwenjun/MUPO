@@ -35,7 +35,7 @@ setup(
     install_requires=[
         'torch>=1.6.0',
         'numpy>1.16.0',
-        'ray>=1.0.0',
+        'ray>=2.1.0',
         'gym==0.23.1',
         'pygame',
         'box2d',
@@ -46,7 +46,9 @@ setup(
         'seaborn',
         'scipy',
         'slxpy',
-        'openpyxl'
+        'openpyxl',
+        'pynvml',
+        'termcolor'
     ],
     python_requires='>=3.6',
 )

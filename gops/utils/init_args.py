@@ -17,6 +17,7 @@ import os
 import torch
 import warnings
 
+from termcolor import colored
 from functools import reduce
 from gops.utils.common_utils import change_type, seed_everything
 import pynvml
@@ -58,7 +59,7 @@ def init_args(env, **args):
             args["device"] = f'cuda:{least_utilized_gpu}'
             args["use_gpu"] = True
         else:
-            warning_msg = "cuda is not available, use CPU instead"
+            warning_msg = colored("cuda is not available, use CPU instead, training may be very slow", 'red')
             warnings.warn(warning_msg)
             args["device"] = "cpu"
             args["use_gpu"] = False
