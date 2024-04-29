@@ -101,15 +101,6 @@ class ApproxContainer(ApprBase):
         z = torch.clamp(z, -3, 3)
         q_value = mean + torch.mul(z, std)
         return mean, std, q_value
-    
-    def get_value(self, state):
-        # 计算所有子action
-        value = 0
-        dist = self.create_action_distributions(state)
-        for index in range (self.sub_policy_num):
-            action, std, gate_prob = dist.get_sub_mean_std(index)
-            value += self.__q_evaluate(state, action, self.q1)[0] * gate_prob
-        return value
 
     def compute_action(self, state, deterministic=False):
         dist = self.create_action_distributions(state)
