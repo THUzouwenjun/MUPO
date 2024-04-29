@@ -7,10 +7,9 @@
 #  Email: lisb04@gmail.com
 #
 #  Description: Distributed Soft Actor-Critic (DSAC) algorithm
-#  Reference: Duan J, Guan Y, Li S E, et al.
-#             Distributional soft actor-critic: Off-policy reinforcement learning
-#             for addressing value estimation errors[J].
-#             IEEE transactions on neural networks and learning systems, 2021.
+#  Reference: Duan J, Wan W, Li S E, et al.
+#             DSAC-T: Distributional Soft Actor-Critic with Three Refinements[J].
+#             https://arxiv.org/abs/2310.05858, 2023.
 #  Update: 2023-12-28, Wenxuan Wang: create DSAC2 algorithm
 
 __all__=["ApproxContainer","DSAC2"]

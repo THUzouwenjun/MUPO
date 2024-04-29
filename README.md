@@ -29,13 +29,13 @@ After training, test the policy by running:
 python example_run/run_bypass.py
 ```
 Then you can see the simulation results in the `figures` folder.
-Remember to modify the model path in `run_bypass.py`, including the algorithm, date_list, iteration, and whether to use closed-loop dynamics (`is_closed_loop`).
+Remember to modify the model path in `run_bypass.py`, including the `algorithm`, `date_list`, `iteration`, and whether to use closed-loop dynamics (`is_closed_loop`).
 When `is_closed_loop` is set to False, it uses an open-loop dynamics model, and the ego vehicle's state is updated based on the predefined state in `step_open_loop()` from the environment.
 Figures 4c and 4d in the paper use the open-loop dynamics model, while other experiments use the closed-loop dynamics model.
 
 Two examples of continuous policies colliding are provided here
 ```bash
-python run_by_pass_collision.py
+python run_bypass_collision.py
 python run_encounter_collision.py
 ```
 
