@@ -11,8 +11,7 @@
 #             Distributional soft actor-critic: Off-policy reinforcement learning
 #             for addressing value estimation errors[J].
 #             IEEE transactions on neural networks and learning systems, 2021.
-#  Update: 2021-03-05, Ziqing Gu: create DSAC algorithm
-#  Update: 2021-03-05, Wenxuan Wang: debug DSAC algorithm
+#  Update: 2023-12-28, Wenxuan Wang: create DSAC2 algorithm
 
 __all__=["ApproxContainer","DSAC2"]
 import time
@@ -126,7 +125,7 @@ class ApproxContainer(ApprBase):
 class DSAC2(AlgorithmBase):
     """Modified DSAC algorithm
 
-    Paper: https://arxiv.org/pdf/2001.02811
+    Paper: https://arxiv.org/pdf/2001.02811; https://arxiv.org/pdf/2001.02811
 
     :param float gamma: discount factor.
     :param float tau: param for soft update of target network.
