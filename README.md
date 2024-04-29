@@ -7,11 +7,14 @@ GOPS requires:
 1. Windows 7 or greater or Linux (Linux recommended).
 2. Python 3.6 or greater. We recommend using Python 3.8.
 3. The installation path must be in English.
+4. PyTorch with CUDA support. Visit https://pytorch.org/ and install the appropriate version of PyTorch for your system, ensuring that it matches your CUDA version.
 
 You can install GOPS through the following steps:
 ```bash
 # create conda environment
-conda env create -f gops_environment.yml
+cd code/
+conda install mamba -n base -c conda-forge
+mamba env create -f gops_environment.yml
 conda activate gops
 # install GOPS
 pip install -e .
