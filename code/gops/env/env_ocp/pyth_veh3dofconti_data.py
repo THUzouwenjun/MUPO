@@ -317,6 +317,8 @@ class SimuVeh3dofconti(PythBaseEnv):
         if mode == "rgb_array":
             fig.canvas.draw()
             image_from_plot = np.frombuffer(fig.canvas.tostring_rgb(), dtype=np.uint8)
+            print("image_from_plot.shape: ", image_from_plot.shape)
+            print("fig.canvas.get_width_height(): ", fig.canvas.get_width_height())
             image_from_plot = image_from_plot.reshape(
                 fig.canvas.get_width_height()[::-1] + (3,)
             )

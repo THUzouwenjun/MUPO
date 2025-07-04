@@ -5,3 +5,4 @@ python3 plotting_scripts/plot_actions_closedloop_encounter.py
 python3 plotting_scripts/plot_actions_openloop.py
 python3 plotting_scripts/plot_results_bypass.py
 python3 plotting_scripts/plot_results_encounter.py
+python3 plotting_scripts/plot_ugv_results.py

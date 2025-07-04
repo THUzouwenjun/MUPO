@@ -13,7 +13,6 @@
 import argparse
 import os
 import numpy as np
-
 from gops.create_pkg.create_alg import create_alg
 from gops.create_pkg.create_buffer import create_buffer
 from gops.create_pkg.create_env import create_env
@@ -23,7 +22,6 @@ from gops.create_pkg.create_trainer import create_trainer
 from gops.utils.init_args import init_args
 from gops.utils.plot_evaluation import plot_all
 from gops.utils.tensorboard_setup import start_tensorboard, save_tb_to_csv
-
 os.environ["OMP_NUM_THREADS"] = "4"
 
 if __name__ == "__main__":

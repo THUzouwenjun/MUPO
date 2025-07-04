@@ -18,10 +18,12 @@ line_width = 3
 plt.rcdefaults()
 plt.rcParams['mathtext.default'] = 'regular'
 
+load_dir = "../data/results"
+
 # plot bypass
 for enum, file in enumerate(file_list):
     order = len(file_list) - enum
-    alg_path = "../results/figures/" + alg_list[enum] + "-pyth_bypass/"
+    alg_path = load_dir + "/figures/" + alg_list[enum] + "-pyth_bypass/"
     x_bypass = np.loadtxt(alg_path + file + "/State-1.csv", delimiter=",", skiprows=1)[0][1:]
     y_bypass = np.loadtxt(alg_path + file + "/State-2.csv", delimiter=",", skiprows=1)[0][1:]
     steer_bypass = np.loadtxt(alg_path + file + "/Action-1.csv", delimiter=",", skiprows=1)[1:]
@@ -50,7 +52,7 @@ alg_list = ["MUPO", "DSAC2", "SAC"]
 
 for enum, file in enumerate(file_list):
     order = len(file_list) - enum
-    alg_path = "../results/figures/" + alg_list[enum] + "-pyth_encounter/"
+    alg_path = load_dir + "/figures/" + alg_list[enum] + "-pyth_encounter/"
     data_x = np.loadtxt(alg_path + file + "/State-1.csv", delimiter=",", skiprows=1)[0][1:]
     data_y = np.loadtxt(alg_path + file + "/State-2.csv", delimiter=",", skiprows=1)[0][1:]
     date_steer = np.loadtxt(alg_path + file + "/Action-1.csv", delimiter=",", skiprows=1)[1:]

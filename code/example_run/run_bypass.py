@@ -13,14 +13,15 @@
 from gops.sys_simulator.sys_run import PolicyRunner
 
 env_id = "pyth_bypass"
-algrithm = "MUPO"
-date_list = ["240428-145326"]
-ite = "60000"
+algrithm = "MUPO" # The algorithm used to train the policy.
+date_list = ["240428-145326"] # The date of the trained policy.
+ite = "60000" # The iteration number of the trained policy.
 is_closed_loop = False # True for closed-loop, False for open-loop.
 
 for date in date_list:
     runner = PolicyRunner(
-        log_policy_dir_list=["../results/" + env_id + "/" + algrithm + "/" + date],
+        # The directory of the policy trained in Code Ocean is ../results/
+        log_policy_dir_list=["../data/results/" + env_id + "/" + algrithm + "/" + date],
         trained_policy_iteration_list=[ite],
         is_init_info=True,
         # "init_state": [0.0, -2.0, 0.0, 0.0, 0, 0] means the initial relative state of the ego vehicle.
@@ -31,7 +32,7 @@ for date in date_list:
         # vx - longitudinal velocity (in meters per second),
         # vy - lateral velocity (in meters per second),
         # r - yaw rate (in radians per second)
-        # "ref_num": 13 means the straight path. We only trained on straight paths.
+        # "ref_num": 13 means the straight path. We only trained on straight paths. Do not change this value.
         init_info={"init_state": [0.0, -2.0, 0.0, 0.0, 0, 0], "ref_time": 0.0,
                 "ref_num": 13, "is_closed_loop": is_closed_loop, "surr_veh_dist": 10.0},
         save_render=True,

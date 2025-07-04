@@ -848,7 +848,7 @@ class PolicyRunner:
         log_path = log_policy_dir + "/apprfunc/apprfunc_{}.pkl".format(
             trained_policy_iteration
         )
-        networks.load_state_dict(torch.load(log_path))
+        networks.load_state_dict(torch.load(log_path, map_location=torch.device("cpu")))
         return networks
 
     def __convert_format(self, origin_data_list: list):

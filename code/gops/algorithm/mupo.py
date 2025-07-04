@@ -39,6 +39,7 @@ class ApproxContainer(ApprBase):
         self.device = kwargs["device"]
         # create q networks
         self.q_args = get_apprfunc_dict("value", kwargs["value_func_type"], **kwargs)
+        print("self.device", self.device)
         self.q1: nn.Module = create_apprfunc(**self.q_args).to(self.device)
         self.q2: nn.Module = create_apprfunc(**self.q_args).to(self.device)
         self.q1_target = deepcopy(self.q1)

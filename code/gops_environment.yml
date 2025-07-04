@@ -13,15 +13,11 @@ dependencies:
   - matplotlib
   - seaborn
   - scipy
-  - llvm-openmp<16
   - pip
   - pip:
     - gym==0.23.1
     - gymnasium
     - box2d
-    - pygame
-    - pyglet
-    - slxpy
-    - openpyxl
-    - intel-openmp
-    - pytest
+    - ray>=2.10.0
+    - pynvml
+    - termcolor

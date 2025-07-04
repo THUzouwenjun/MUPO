@@ -20,7 +20,7 @@ is_closed_loop = True
 
 for date in date_list:
     runner = PolicyRunner(
-        log_policy_dir_list=["../results/" + env_id + "/" + algrithm + "/" + date],
+        log_policy_dir_list=["../data/results/" + env_id + "/" + algrithm + "/" + date],
         trained_policy_iteration_list=[ite],
         is_init_info=True,
         init_info={"init_state": [0.24, 0.0, 0.0, 0.0, 0, 0], "ref_time": 0.0,

@@ -8,8 +8,8 @@ title_list = ["MUPO", "DSAC","SAC"]
 date_list_list = [["240428-135846", "240428-142700", "240428-145610", "240428-152509", "240428-155407"],
                   ["240427-170623", "240427-172919", "240427-175303", "240427-181400", "240427-183508"],
                   ["240427-150628", "240427-152524", "240427-154416", "240427-160336", "240427-162305"]]
-
-save_dir = "../results/figures/"
+load_dir = "../data/results"
+save_dir = "../results/figures"
 color_list = [(31/255, 119/255, 200/255), 
               (44/255, 160/255, 44/255), 
               (250/255, 120/255, 20/255), 
@@ -41,8 +41,8 @@ for i in range(algrithm_num):
 
     avg_max_return = 0
     for j in range(date_num):
-        con_csv_dir = "../results/" + env_id + "/" + algrithm_name + "/" + date_list[j] + "/data/Evaluation_1. CON-RL iter.csv"
-        tar_csv_dir = "../results/" + env_id + "/" + algrithm_name + "/" + date_list[j] + "/data/Evaluation_1. TAR-RL iter.csv"
+        con_csv_dir = load_dir + "/" + env_id + "/" + algrithm_name + "/" + date_list[j] + "/data/Evaluation_1. CON-RL iter.csv"
+        tar_csv_dir = load_dir + "/" + env_id + "/" + algrithm_name + "/" + date_list[j] + "/data/Evaluation_1. TAR-RL iter.csv"
         con_data = np.loadtxt(con_csv_dir, delimiter=",", skiprows=1)
         tar_data = np.loadtxt(tar_csv_dir, delimiter=",", skiprows=1)
         avg_max_return += np.max(tar_data[:, 1])
